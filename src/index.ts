@@ -17,3 +17,5 @@ export const initClient = async (discordToken: string): Promise<Client> => {
 export * from './wrappers/downloadFile.js';
 export * from './wrappers/uploadFile.js';
 export * from './wrappers/createChannel.js';
+
+export * from './logger/DiscordLogger.js';
