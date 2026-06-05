@@ -1,11 +1,11 @@
 import { Client, TextChannel, Guild } from 'discord.js';
-import { getGuild } from './guild/getGuild';
-import { initClient } from './client/init';
-import { createChannel } from './channels/createChannel';
-import { getTextChannel } from './channels/getTextChannel';
-import { uploadFile } from './files/uploadFile';
-import { downloadFile } from './files/downloadFile';
-import { LogLevelKey, log } from './logger/log';
+import { getGuild } from './guild/getGuild.js';
+import { initClient } from './client/init.js';
+import { createChannel } from './channels/createChannel.js';
+import { getTextChannel } from './channels/getTextChannel.js';
+import { uploadFile } from './files/uploadFile.js';
+import { downloadFile } from './files/downloadFile.js';
+import { LogLevelKey, log } from './logger/log.js';
 
 type DiscordBucketOptions = {
   discordToken: string;

@@ -1,14 +1,15 @@
 {
   "name": "discord-bucket",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.js"
-    }
+    },
+    "./*": "./dist/*.js"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
