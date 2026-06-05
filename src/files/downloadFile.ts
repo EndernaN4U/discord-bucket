@@ -1,16 +1,9 @@
-import { Client, TextChannel } from 'discord.js';
+import { TextChannel } from 'discord.js';
 
 export const downloadFile = async (
-  client: Client,
-  channelId: string,
+  channel: TextChannel,
   messageId: string
 ): Promise<{ file: Buffer; fileName: string }> => {
-  const channel = await client.channels.fetch(channelId);
-
-  if (!channel || !(channel instanceof TextChannel)) {
-    throw new Error(`Missing or invalid channel ID: ${channelId}`);
-  }
-
   const message = await channel.messages.fetch(messageId);
   const attachment = message.attachments.first();
 
