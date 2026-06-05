@@ -7,23 +7,25 @@ export enum LogLevel {
   ERROR = 0xe74c3c, // Red
 }
 
-const LogIcons: Record<LogLevel, string> = {
-  [LogLevel.INFO]: 'ℹ️',
-  [LogLevel.SUCCESS]: '✅',
-  [LogLevel.WARN]: '⚠️',
-  [LogLevel.ERROR]: '🚨',
+export type LogLevelKey = keyof typeof LogLevel;
+
+const LogIcons: Record<LogLevelKey, string> = {
+  ['INFO']: 'ℹ️',
+  ['SUCCESS']: '✅',
+  ['WARN']: '⚠️',
+  ['ERROR']: '🚨',
 };
 
 export const log = async (
   channel: TextChannel,
-  level: LogLevel,
+  level: LogLevelKey,
   title: string,
   content: string
 ): Promise<void> => {
   const icon = LogIcons[level] || '📝';
 
   const embed = new EmbedBuilder()
-    .setColor(level)
+    .setColor(LogLevel[level])
     .setTitle(`${icon} ${title}`)
     .setDescription(content)
     .setTimestamp();

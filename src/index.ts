@@ -5,7 +5,7 @@ import { createChannel } from './channels/createChannel';
 import { getTextChannel } from './channels/getTextChannel';
 import { uploadFile } from './files/uploadFile';
 import { downloadFile } from './files/downloadFile';
-import { LogLevel, log } from './logger/log';
+import { LogLevelKey, log } from './logger/log';
 
 type DiscordBucketOptions = {
   discordToken: string;
@@ -79,7 +79,7 @@ export default class DiscordBucket {
   }
 
   //Logger
-  async log(level: LogLevel, title: string, content: string): Promise<void> {
+  async log(level: LogLevelKey, title: string, content: string): Promise<void> {
     if (!this.loggerChannel) {
       throw new Error('Logger channel is not initialized. Please call initLoggerChannel() first.');
     }
