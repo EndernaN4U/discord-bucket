@@ -16,12 +16,12 @@ type DiscordBucketOptions = {
 export default class DiscordBucket {
   discordClient: Client;
 
-  guildId: Guild;
+  guild: Guild;
   loggerChannel?: TextChannel = undefined;
 
-  constructor(client: Client, guildId: Guild) {
+  constructor(client: Client, guild: Guild) {
     this.discordClient = client;
-    this.guildId = guildId;
+    this.guild = guild;
   }
 
   static async init(options: DiscordBucketOptions) {
@@ -53,7 +53,7 @@ export default class DiscordBucket {
 
   //Channels
   async createChannel(channelName: string): Promise<string> {
-    return await createChannel(this.guildId, channelName);
+    return await createChannel(this.guild, channelName);
   }
 
   //Files
