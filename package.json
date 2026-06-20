@@ -6,15 +6,17 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    },
-    "./*": {
-      "types": "./dist/*.d.ts",
-      "import": "./dist/*.js"
-    }
+  ".": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.js",
+    "require": "./dist/index.js"
   },
+  "./*": {
+    "types": "./dist/*.d.ts",
+    "import": "./dist/*.js",
+    "require": "./dist/*.js"
+  }
+},
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "start": "node dist/index.js",
